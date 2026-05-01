@@ -1,0 +1,33 @@
+/*
+ * overlay.css
+ *
+ * Canvasオーバーレイをプレイヤー上に配置する。
+ * pointer-events:none でクリックを一切ブロックしない。
+ */
+
+/* オーバーレイラッパー：プレイヤーいっぱいに広がる透明な層 */
+#yt-nicovideo-overlay-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* コメントを描画するCanvas本体 */
+#yt-nicovideo-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* YouTubeのプレイヤーコンテナは既にposition:relativeだが念のため指定 */
+#movie_player,
+.html5-video-player {
+  position: relative !important;
+}

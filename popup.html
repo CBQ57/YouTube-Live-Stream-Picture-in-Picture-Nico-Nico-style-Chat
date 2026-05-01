@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YT ニコニコ風オーバーレイ</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+
+<body>
+  <div class="popup-root">
+
+    <!-- ヘッダー -->
+    <header class="popup-header">
+      <div class="logo">
+        <span class="logo-icon">▶</span>
+        <span class="logo-text">ニコニコオーバーレイ</span>
+      </div>
+      <label class="toggle-switch" title="オーバーレイのON/OFF">
+        <input type="checkbox" id="toggleEnabled" />
+        <span class="slider"></span>
+      </label>
+    </header>
+
+    <!-- 設定パネル -->
+    <main class="popup-body" id="settingsPanel">
+
+
+
+      <!-- コメント速度 -->
+      <div class="setting-row">
+        <label for="speedRange">
+          <span class="setting-label">コメント速度</span>
+          <span class="setting-value" id="speedValue">8</span>
+        </label>
+        <input type="range" id="speedRange" min="2" max="20" step="1" value="8" />
+      </div>
+
+      <!-- フォントサイズ -->
+      <div class="setting-row">
+        <label for="fontSizeRange">
+          <span class="setting-label">文字サイズ</span>
+          <span class="setting-value" id="fontSizeValue">26</span><span class="unit">px</span>
+        </label>
+        <input type="range" id="fontSizeRange" min="14" max="72" step="2" value="26" />
+      </div>
+
+      <!-- 文字スタイル -->
+      <div class="setting-row">
+        <label>
+          <span class="setting-label">文字スタイル</span>
+        </label>
+        <div style="display: flex; gap: 8px; align-items: center; margin-top: 4px;">
+          <input type="color" id="textColorInput" value="#ffffff" title="文字色"
+            style="cursor: pointer; border: none; padding: 0; width: 34px; height: 34px; border-radius: 4px; background: none;" />
+          <button id="btnBold" class="style-btn" title="太字" style="font-weight: bold;">B</button>
+          <button id="btnItalic" class="style-btn" title="斜体" style="font-style: italic;">I</button>
+          <button id="btnStroke" class="style-btn" title="縁取り（ストローク）"
+            style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">S</button>
+        </div>
+      </div>
+
+      <!-- 不透明度 -->
+      <div class="setting-row">
+        <label for="opacityRange">
+          <span class="setting-label">不透明度</span>
+          <span class="setting-value" id="opacityValue">90</span><span class="unit">%</span>
+        </label>
+        <input type="range" id="opacityRange" min="10" max="100" step="5" value="90" />
+      </div>
+
+      <!-- 最大同時表示数 -->
+      <div class="setting-row">
+        <label for="maxCommentsRange">
+          <span class="setting-label">最大表示数</span>
+          <span class="setting-value" id="maxCommentsValue">40</span>
+        </label>
+        <input type="range" id="maxCommentsRange" min="5" max="80" step="5" value="40" />
+      </div>
+
+      <hr class="divider" />
+
+      <!-- ユーザー名表示 -->
+      <div class="setting-row toggle-row">
+        <span class="setting-label">ユーザー名を表示</span>
+        <label class="toggle-switch small">
+          <input type="checkbox" id="toggleUsername" checked />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <!-- スーパーチャット表示 -->
+      <div class="setting-row toggle-row">
+        <span class="setting-label">スーパーチャットを表示</span>
+        <label class="toggle-switch small">
+          <input type="checkbox" id="toggleSuperChat" checked />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <!-- メンバーシップ表示 -->
+      <div class="setting-row toggle-row">
+        <span class="setting-label">メンバーシップを表示</span>
+        <label class="toggle-switch small">
+          <input type="checkbox" id="toggleMembership" checked />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- プレイヤーボタン表示 -->
+      <div class="setting-row toggle-row">
+        <span class="setting-label">NICOボタンを非表示</span>
+        <label class="toggle-switch small">
+          <input type="checkbox" id="toggleHideNicoBtn" />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <!-- PIPボタン非表示 -->
+      <div class="setting-row toggle-row">
+        <span class="setting-label">PIPボタンを非表示</span>
+        <label class="toggle-switch small">
+          <input type="checkbox" id="toggleHidePipBtn" />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <!-- PiP内コメント表示 -->
+      <div class="setting-row toggle-row">
+        <span class="setting-label">PiP内チャットを非表示</span>
+        <label class="toggle-switch small">
+          <input type="checkbox" id="toggleHidePipComment" />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+    </main>
+
+    <!-- フッター -->
+    <footer class="popup-footer">
+      <span>YouTube Live ＆ PiP（ピクチャーインピクチャー）対応</span>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>
